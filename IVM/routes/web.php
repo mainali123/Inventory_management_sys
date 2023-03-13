@@ -3,6 +3,8 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\AdminController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Pos\SupplierController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -30,8 +32,7 @@ Route::get('/dashboard', function () {
 //});
 
 
-
-// Admin all route
+// Admin all routes
 Route::controller(AdminController::class)->group(function () {
     Route::get('/admin/logout', 'destroy')->name('admin.logout');
     Route::get('/admin/profile', 'Profile')->name('admin.profile');
@@ -41,4 +42,9 @@ Route::controller(AdminController::class)->group(function () {
     Route::post('/update/password', 'UpdatePassword')->name('update.password');
 });
 
-require __DIR__.'/auth.php';
+//
+Route::controller(SupplierController::class)->group(function () {
+    Route::get('/supplier/all', 'SupplierAll')->name('supplier.all');
+    Route::get('/supplier/add', 'SupplierAdd')->name('supplier.add');
+});
+require __DIR__ . '/auth.php';
