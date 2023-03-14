@@ -10,53 +10,69 @@
                     <div class="card">
                         <div class="card-body">
 
-                            <h4 class="card-title">Add Supplier Page </h4><br><br>
+                            <h4 class="card-title">Add Customer Page </h4><br><br>
 
 
 
-                            <form method="post" action="{{ route('supplier.update') }}" id="myForm" >
-{{--                                <form method="post" id="myForm" >--}}
-
+                            <form method="post" action="{{ route('customer.store') }}" id="myForm" enctype="multipart/form-data" >
                                 @csrf
 
-                                <input type="hidden" name="id" value="{{ $supplier->id }}">
-
                                 <div class="row mb-3">
-                                    <label for="example-text-input" class="col-sm-2 col-form-label">Supplier Name </label>
+                                    <label for="example-text-input" class="col-sm-2 col-form-label">Customer Name </label>
                                     <div class="form-group col-sm-10">
-                                        <input name="name" class="form-control" value="{{ $supplier->name }}" type="text"    >
+                                        <input name="name" class="form-control" type="text"    >
                                     </div>
                                 </div>
                                 <!-- end row -->
 
 
                                 <div class="row mb-3">
-                                    <label for="example-text-input" class="col-sm-2 col-form-label">Supplier Mobile </label>
+                                    <label for="example-text-input" class="col-sm-2 col-form-label">Customer Mobile </label>
                                     <div class="form-group col-sm-10">
-                                        <input name="mobile_no" value="{{ $supplier->mobile_no }}" class="form-control" type="text"    >
+                                        <input name="mobile_no" class="form-control" type="text"    >
                                     </div>
                                 </div>
                                 <!-- end row -->
 
 
                                 <div class="row mb-3">
-                                    <label for="example-text-input" class="col-sm-2 col-form-label">Supplier Email </label>
+                                    <label for="example-text-input" class="col-sm-2 col-form-label">Customer Email </label>
                                     <div class="form-group col-sm-10">
-                                        <input name="email" value="{{ $supplier->email }}" class="form-control" type="email"  >
+                                        <input name="email" class="form-control" type="email"  >
                                     </div>
                                 </div>
                                 <!-- end row -->
 
 
                                 <div class="row mb-3">
-                                    <label for="example-text-input" class="col-sm-2 col-form-label">Supplier Address </label>
+                                    <label for="example-text-input" class="col-sm-2 col-form-label">Customer Address </label>
                                     <div class="form-group col-sm-10">
-                                        <input name="address" value="{{ $supplier->address }}" class="form-control" type="text"  >
+                                        <input name="address" class="form-control" type="text"  >
                                     </div>
                                 </div>
                                 <!-- end row -->
+
+                                <div class="row mb-3">
+                                    <label for="example-text-input" class="col-sm-2 col-form-label">Customer Image </label>
+                                    <div class="form-group col-sm-10">
+                                        <input name="customer_image" class="form-control" type="file"  id="image">
+                                    </div>
+                                </div>
+                                <!-- end row -->
+
+                                <div class="row mb-3">
+                                    <label for="example-text-input" class="col-sm-2 col-form-label">  </label>
+                                    <div class="col-sm-10">
+                                        <img id="showImage" class="rounded avatar-lg" src="{{  url('upload/no_image.jpg') }}" alt="Card image cap">
+                                    </div>
+                                </div>
+                                <!-- end row -->
+
+
+
+
 <center>
-                                <input type="submit" class="btn btn-dark waves-effect waves-light" value="Update Supplier">
+                                <input type="submit" class="btn btn-dark waves-effect waves-light" value="Add Customer">
 </center>
                             </form>
 
@@ -88,6 +104,9 @@
                     address: {
                         required : true,
                     },
+                    customer_image: {
+                        required : true,
+                    },
                 },
                 messages :{
                     name: {
@@ -101,6 +120,9 @@
                     },
                     address: {
                         required : 'Please Enter Your Address',
+                    },
+                    customer_image: {
+                        required : 'Please Select Image',
                     },
                 },
                 errorElement : 'span',
@@ -117,6 +139,20 @@
             });
         });
 
+    </script>
+
+
+    <script type="text/javascript">
+
+        $(document).ready(function(){
+            $('#image').change(function(e){
+                var reader = new FileReader();
+                reader.onload = function(e){
+                    $('#showImage').attr('src',e.target.result);
+                }
+                reader.readAsDataURL(e.target.files['0']);
+            });
+        });
     </script>
 
 

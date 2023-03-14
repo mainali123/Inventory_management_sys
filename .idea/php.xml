@@ -120,6 +120,7 @@
       <path value="$PROJECT_DIR$/IVM/vendor/dragonmantank/cron-expression" />
       <path value="$PROJECT_DIR$/IVM/vendor/graham-campbell/result-type" />
       <path value="$PROJECT_DIR$/IVM/vendor/laravel/breeze" />
+      <path value="$PROJECT_DIR$/IVM/vendor/intervention/image" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="8.1">
