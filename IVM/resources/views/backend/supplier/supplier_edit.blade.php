@@ -10,7 +10,7 @@
                     <div class="card">
                         <div class="card-body">
 
-                            <h4 class="card-title">Add Supplier Page </h4><br><br>
+                            <h4 class="card-title">Update Supplier</h4><br><br>
 
 
 
