@@ -10,7 +10,7 @@
                     <div class="card">
                         <div class="card-body">
 
-                            <h4 class="card-title">Edit Customer Page </h4><br><br>
+                            <h4 class="card-title">Update Customer</h4><br><br>
 
                             <form method="post" action="{{ route('customer.update') }}" id="myForm" enctype="multipart/form-data" >
                                 @csrf
