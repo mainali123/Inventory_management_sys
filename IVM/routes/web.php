@@ -7,7 +7,7 @@ use App\Http\Controllers\Pos\SupplierController;
 use App\Http\Controllers\Pos\CustomerController;
 use App\Http\Controllers\Pos\UnitController;
 use App\Http\Controllers\Pos\CategoryController;
-
+use App\Http\Controllers\Pos\InvoiceController;
 
 /*
 |--------------------------------------------------------------------------
@@ -73,6 +73,7 @@ Route::controller(UnitController::class)->group(function () {
     Route::get('/unit/edit/{id}', 'UnitEdit')->name('unit.edit');
     Route::post('/unit/update', 'UnitUpdate')->name('unit.update');
     Route::get('/unit/delete/{id}', 'UnitDelete')->name('unit.delete');
+});
 
     // Category All Route
     Route::controller(CategoryController::class)->group(function () {
@@ -82,10 +83,11 @@ Route::controller(UnitController::class)->group(function () {
         Route::get('/category/edit/{id}', 'CategoryEdit')->name('category.edit');
         Route::post('/category/update', 'CategoryUpdate')->name('category.update');
         Route::get('/category/delete/{id}', 'CategoryDelete')->name('category.delete');
-
-    });
-
+});
 
 
+// Invoice All Route
+Route::controller(InvoiceController::class)->group(function () {
+    Route::get('/invoice/all', 'InvoiceAll')->name('invoice.all');
 });
 require __DIR__ . '/auth.php';

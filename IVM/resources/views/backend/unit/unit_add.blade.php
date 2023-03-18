@@ -25,8 +25,9 @@
                                 </div>
                                 <!-- end row -->
 
-
-                                <input type="submit" class="btn btn-info waves-effect waves-light" value="Add Unit">
+<center>
+                                <input type="submit" class="btn btn-dark waves-effect waves-light" value="Add Unit">
+</center>
                             </form>
 
 
