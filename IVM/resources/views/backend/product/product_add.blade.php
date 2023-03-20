@@ -68,7 +68,7 @@
                                 <!-- end row -->
 
 
-                                <input type="submit" class="btn btn-info waves-effect waves-light" value="Add Product">
+                                <input type="submit" class="btn btn-dark waves-effect waves-light" value="Add Product">
                             </form>
 
 
