@@ -67,8 +67,9 @@
                                 </div>
                                 <!-- end row -->
 
-
+<center>
                                 <input type="submit" class="btn btn-dark waves-effect waves-light" value="Add Product">
+</center>
                             </form>
 
 

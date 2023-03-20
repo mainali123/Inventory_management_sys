@@ -111,7 +111,9 @@
                                     </tbody>
                                 </table><br>
                                 <div class="form-group">
+                                    <center>
                                     <button type="submit" class="btn btn-dark waves-effect waves-light" id="storeButton"> Purchase Store</button>
+                                    </center>
                                 </div>
 
                             </form>
