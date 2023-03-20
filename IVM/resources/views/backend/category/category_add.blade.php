@@ -26,7 +26,7 @@
                                 <!-- end row -->
 
 
-                                <input type="submit" class="btn btn-info waves-effect waves-light" value="Add Category">
+                                <input type="submit" class="btn btn-dark waves-effect waves-light" value="Add Category">
                             </form>
 
 
