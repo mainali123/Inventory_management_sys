@@ -23,4 +23,13 @@ class InvoiceController extends Controller
         $allData = Invoice::orderBy('date','desc')->orderBy('id','desc')->get();
         return view('backend.invoice.invoice_all',compact('allData'));
     }
+
+    public function invoiceAdd(){
+
+        $supplier = Supplier::all();
+        $unit = Unit::all();
+        $category = Category::all();
+        return view('backend.invoice.invoice_add',compact('supplier','unit','category'));
+
+    }
 }
