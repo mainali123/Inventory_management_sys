@@ -72,10 +72,6 @@
                                     </div>
                                 </div>
 
-
-
-
-
                             </div> <!-- // end row  -->
 
                         </div> <!-- End card-body -->
@@ -171,9 +167,6 @@
 
                         <br>
 
-
-
-
                                 <div class="form-group">
                                     <center>
                                     <button type="submit" class="btn btn-dark btn-rounded waves-effect waves-light" id="storeButton"> Invoice Store</button>
@@ -183,30 +176,14 @@
 
                             </form>
 
-
-
-
-
-
                         </div> <!-- End card-body -->
-
-
-
-
-
-
 
                     </div>
                 </div> <!-- end col -->
             </div>
 
-
-
         </div>
     </div>
-
-
-
 
     <script id="document-template" type="text/x-handlebars-template">
 
@@ -232,8 +209,6 @@
             <td>
                 <input type="number" class="form-control unit_price text-right" name="unit_price[]" value="">
             </td>
-
-
 
             <td>
                 <input type="number" class="form-control selling_price text-right" name="selling_price[]" value="0" readonly>
@@ -326,7 +301,6 @@
 
 
     </script>
-
 
     <script type="text/javascript">
         $(function(){
