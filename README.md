@@ -49,7 +49,7 @@ Contributing
 Credits
 -------
 
-This project was created by \[Diwash Mainali, Adhiraj Lamichhane, Amrit Kumar Budhathoki and Naima Pravin]\.
+This project was created by \Diwash Mainali, Adhiraj Lamichhane, Amrit Kumar Budhathoki and Naima Pravin\.
 
 License
 -------
