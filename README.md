@@ -1,6 +1,6 @@
 Inventory Management System
 
-Inventory Management System
+Inventory Management System (DAAN)
 ===========================
 
 This is an Inventory Management System web application built using Laravel, a popular PHP web application framework. The application allows users to manage inventory items, track inventory levels, and view inventory reports.
@@ -49,7 +49,7 @@ Contributing
 Credits
 -------
 
-This project was created by \[Your Name\].
+This project was created by \Diwash Mainali, Adhiraj Lamichhane, Amrit Kumar Budhathoki and Naima Pravin].
 
 License
 -------
