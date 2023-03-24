@@ -86,7 +86,7 @@
                                                 <table class="table">
                                                     <thead>
                                                     <tr>
-                                                        <td><strong>Sl </strong></td>
+                                                        <td><strong>SN </strong></td>
                                                         <td class="text-center"><strong>Customer Name </strong></td>
                                                         <td class="text-center"><strong>Invoice No  </strong>
                                                         </td>
@@ -139,8 +139,8 @@
 
                                             <div class="d-print-none">
                                                 <div class="float-end">
-                                                    <a href="javascript:window.print()" class="btn btn-success waves-effect waves-light"><i class="fa fa-print"></i></a>
-                                                    <a href="#" class="btn btn-primary waves-effect waves-light ms-2">Download</a>
+                                                    <a href="javascript:window.print()" class="btn btn-success waves-effect waves-light"><i class="fa fa-print">    Print</i></a>
+{{--                                                    <a href="#" class="btn btn-primary waves-effect waves-light ms-2">Download</a>--}}
                                                 </div>
                                             </div>
                                         </div>
