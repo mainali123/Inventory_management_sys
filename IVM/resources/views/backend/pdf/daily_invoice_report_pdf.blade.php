@@ -86,7 +86,7 @@
                                                 <table class="table">
                                                     <thead>
                                                     <tr>
-                                                        <td><strong>Sl </strong></td>
+                                                        <td><strong>SN </strong></td>
                                                         <td class="text-center"><strong>Customer Name </strong></td>
                                                         <td class="text-center"><strong>Invoice No  </strong>
                                                         </td>
@@ -110,7 +110,7 @@
                                                         <tr>
                                                             <td class="text-center">{{ $key+1 }}</td>
                                                             <td class="text-center">{{ $item['payment']['customer']['name'] }}</td>
-                                                            <td class="text-center">#{{ $item->invoice_no }}</td>
+                                                            <td class="text-center">{{ $item->invoice_no }}</td>
                                                             <td class="text-center">{{ date('d-m-Y',strtotime($item->date)) }}</td>
                                                             <td class="text-center">{{ $item->description }}</td>
                                                             <td class="text-center">{{ $item['payment']['total_amount'] }}</td>
@@ -139,8 +139,8 @@
 
                                             <div class="d-print-none">
                                                 <div class="float-end">
-                                                    <a href="javascript:window.print()" class="btn btn-success waves-effect waves-light"><i class="fa fa-print"></i></a>
-                                                    <a href="#" class="btn btn-primary waves-effect waves-light ms-2">Download</a>
+                                                    <a href="javascript:window.print()" class="btn btn-success waves-effect waves-light"><i class="fa fa-print">    Print</i></a>
+{{--                                                    <a href="#" class="btn btn-primary waves-effect waves-light ms-2">Download</a>--}}
                                                 </div>
                                             </div>
                                         </div>

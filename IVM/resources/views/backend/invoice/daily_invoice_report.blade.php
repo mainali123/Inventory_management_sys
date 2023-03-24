@@ -35,7 +35,7 @@
                                     <div class="col-md-4">
                                         <div class="md-3">
                                             <label for="example-text-input" class="form-label" style="margin-top:43px;"> </label>
-                                            <button type="submit" class="btn btn-info">Search</button>
+                                            <button type="submit" class="btn btn-dark btn-rounded waves-effect waves-light">Search</button>
                                         </div>
                                     </div>
 
