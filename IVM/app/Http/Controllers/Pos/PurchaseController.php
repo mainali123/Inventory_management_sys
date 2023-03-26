@@ -14,6 +14,14 @@ use Illuminate\Support\Carbon;
 
 class PurchaseController extends Controller
 {
+    /*
+    @Author: Adhiraj Lamichhane
+    This function retrieves all the purchases made by the user from the Purchase table using Eloquent ORM and displays them in the purchase_all view
+    @return \Illuminate\Http\Response -> The response object containing the view and the data to be displayed
+
+    Code Reference:
+    1. https://laravel.com/docs/10.x/eloquent#retrieving-models
+     */
     public function PurchaseAll(){
 
         $allData = Purchase::orderBy('date','desc')->orderBy('id','desc')->get();
@@ -21,6 +29,16 @@ class PurchaseController extends Controller
 
     } // End Method
 
+    /*
+    @Author: Adhiraj Lamichhane
+    This function loads the purchase_add view along with the necessary data from the Supplier, Unit, and Category tables using Eloquent ORM
+    @return \Illuminate\Http\Response -> The response object containing purchase_add view with the arrays of all suppliers, units, and categories
+
+    Code Reference:
+    1. https://laravel.com/docs/10.x/eloquent#retrieving-models
+    2. https://laravel.com/docs/10.x/eloquent#retrieving-all-models
+    3. https://laravel.com/docs/10.x/views#passing-data-to-views
+     */
     public function PurchaseAdd(){
 
         $supplier = Supplier::all();
@@ -31,6 +49,17 @@ class PurchaseController extends Controller
     } // End Method
 
 
+    /*
+    @Author: Adhiraj Lamichhane
+    This function is used to store purchase information in the database
+    @param Request $request -> The HTTP request object containing the data to be stored
+    @return \Illuminate\Http\RedirectResponse -> The redirect response object containing the route to redirect to and the notification to be displayed to the user
+
+    Code Reference:
+    1.https://laravel.com/docs/10.x/requests
+    2.https://laravel.com/docs/10.x/redirects
+    3.https://laravel.com/docs/10.x/eloquent#inserting-and-updating-models
+     */
     public function PurchaseStore(Request $request){
 
         if ($request->category_id == null) {
@@ -70,6 +99,16 @@ class PurchaseController extends Controller
     } // End Method
 
 
+    /*
+    @Author: Adhiraj Lamichhane
+    This function is used to remove the specified resource from storage
+    @param  int  $id -> The id of the resource to be deleted
+    @return \Illuminate\Http\Response -> The response object containing the route to redirect to and the notification to be displayed to the user
+
+    Code Reference:
+    1.https://laravel.com/docs/10.x/eloquent#deleting-models
+    2.https://laravel.com/docs/10.x/eloquent#retrieving-single-models
+     */
     public function PurchaseDelete($id){
 
         Purchase::findOrFail($id)->delete();
@@ -83,11 +122,33 @@ class PurchaseController extends Controller
     } // End Method
 
 
+    /*
+    @Author: Adhiraj Lamichhane
+    This function is used to display a listing of the pending purchases
+    @return \Illuminate\Http\Response -> The response object containing the view and the data to be displayed
+
+    Code Reference:
+    1.https://laravel.com/docs/10.x/eloquent#retrieving-models
+    2.https://laravel.com/docs/10.x/queries#ordering-grouping-limit-and-offset
+     */
     public function PurchasePending(){
 
         $allData = Purchase::orderBy('date','desc')->orderBy('id','desc')->where('status','0')->get();
         return view('backend.purchase.purchase_pending',compact('allData'));
     }// End Method
+
+    /*
+    @Author: Adhiraj Lamichhane
+    This function is used to approve the specified purchase and update the status to 1
+    @param  int  $id -> The id of the purchase to be approved
+    @return \Illuminate\Http\Response -> The response object containing the route to redirect to and the notification to be displayed to the user
+
+    Code Reference:
+    1.https://laravel.com/docs/10.x/eloquent#updating-models
+    2.https://laravel.com/docs/10.x/queries#retrieving-results
+    3.https://laravel.com/docs/10.x/eloquent#retrieving-single-models
+    4.https://laravel.com/docs/10.x/eloquent#updating-models
+     */
     public function PurchaseApprove($id){
 
         $purchase = Purchase::findOrFail($id);
