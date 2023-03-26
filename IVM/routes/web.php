@@ -32,12 +32,27 @@ Route::get('/dashboard', function () {
     return view('admin.index');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-//Route::middleware('auth')->group(function () {
-//    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-//    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-//    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-//});
+/* Test Route
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});*/
 
+
+
+/*
+ * @Author: Diwash Mainali
+The admin controller is a controller that is used to manage all the actions of the admin. This is similar to all the other controllers that we have created.
+
+It manages different routes for the admin. A route is a way of mapping an HTTP request to a specific PHP function, called a controller action, that should be executed to handle that request.
+A route defines a URL pattern that is associated with a specific controller action, which can then be executed when a user visits that URL.
+
+The controller is grouped together with different routes. This allows the code to be more organized and easier to read.
+It also helps to avoid repetition of the same code. Grouping routes together also allows us to apply middleware to all the routes in the group if needed, and avoid naming conflicts.
+
+The reference that we took to learn about route groups is the Laravel documentation. You can find it here: https://laravel.com/docs/10.x/routing#route-groups
+*/
 
 // Admin Route
 Route::controller(AdminController::class)->group(function () {
@@ -78,26 +93,26 @@ Route::controller(UnitController::class)->group(function () {
     Route::post('/unit/update', 'UnitUpdate')->name('unit.update');
     Route::get('/unit/delete/{id}', 'UnitDelete')->name('unit.delete');
 });
-    // Category All Route
-    Route::controller(CategoryController::class)->group(function () {
-        Route::get('/category/all', 'CategoryAll')->name('category.all');
-        Route::get('/category/add', 'CategoryAdd')->name('category.add');
-        Route::post('/category/store', 'CategoryStore')->name('category.store');
-        Route::get('/category/edit/{id}', 'CategoryEdit')->name('category.edit');
-        Route::post('/category/update', 'CategoryUpdate')->name('category.update');
-        Route::get('/category/delete/{id}', 'CategoryDelete')->name('category.delete');
-    });
+// Category All Route
+Route::controller(CategoryController::class)->group(function () {
+    Route::get('/category/all', 'CategoryAll')->name('category.all');
+    Route::get('/category/add', 'CategoryAdd')->name('category.add');
+    Route::post('/category/store', 'CategoryStore')->name('category.store');
+    Route::get('/category/edit/{id}', 'CategoryEdit')->name('category.edit');
+    Route::post('/category/update', 'CategoryUpdate')->name('category.update');
+    Route::get('/category/delete/{id}', 'CategoryDelete')->name('category.delete');
+});
 
-        // Product All Route
-        Route::controller(ProductController::class)->group(function () {
-            Route::get('/product/all', 'ProductAll')->name('product.all');
-            Route::get('/product/add', 'ProductAdd')->name('product.add');
-            Route::post('/product/store', 'ProductStore')->name('product.store');
-            Route::get('/product/edit/{id}', 'ProductEdit')->name('product.edit');
-            Route::post('/product/update', 'ProductUpdate')->name('product.update');
-            Route::get('/product/delete/{id}', 'ProductDelete')->name('product.delete');
+// Product All Route
+Route::controller(ProductController::class)->group(function () {
+    Route::get('/product/all', 'ProductAll')->name('product.all');
+    Route::get('/product/add', 'ProductAdd')->name('product.add');
+    Route::post('/product/store', 'ProductStore')->name('product.store');
+    Route::get('/product/edit/{id}', 'ProductEdit')->name('product.edit');
+    Route::post('/product/update', 'ProductUpdate')->name('product.update');
+    Route::get('/product/delete/{id}', 'ProductDelete')->name('product.delete');
 
-        });
+});
 
 
 // Purchase All Route

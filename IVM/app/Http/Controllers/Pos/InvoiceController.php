@@ -20,11 +20,30 @@ use DB;
 
 class InvoiceController extends Controller
 {
+
+    /*
+    @Author: Diwash Mainali
+    This function retrieves all invoices and renders the 'backend.invoice.invoice_all' view with the data
+    @return \Illuminate\View\View -> The view instance for the 'backend.invoice.invoice_all' view
+
+    Code Reference:
+    1. https://laravel.com/docs/10.x/blade#displaying-data
+     */
     public function InvoiceAll(){
         $allData = Invoice::orderBy('date','desc')->orderBy('id','desc')->where('status','1')->get();
         return view('backend.invoice.invoice_all',compact('allData'));
     }
 
+
+    /*
+    @Author: Diwash Mainali
+    This function displays the form to add a new invoice, with options to select a customer, category, and generate a unique invoice number based on the last invoice record in the database
+    @return \Illuminate\View\View -> The HTML view to display the invoice form
+
+    Code Reference:
+    1. https://laravel.com/docs/10.x/blade#displaying-data
+    2. https://laravel.com/docs/10.x/eloquent#retrieving-models
+     */
     public function invoiceAdd(){
         $costomer = Customer::all();
         $category = Category::all();
@@ -39,6 +58,19 @@ class InvoiceController extends Controller
         $date = date('Y-m-d');
         return view('backend.invoice.invoice_add',compact('invoice_no','category','date','costomer'));
     }
+
+    /*
+    @Author: Diwash Mainali
+    This function handles the submission of a new invoice to the database, along with its related details, customer, and payment information.
+    @param Request $request -> The incoming request object containing the form data
+    @return \Illuminate\Http\RedirectResponse -> A redirect response to the invoice pending list page, with a corresponding flash message indicating whether the insertion was successful or not
+
+    Code Reference:
+    1. https://laravel.com/docs/10.x/eloquent#inserts
+    2. https://laravel.com/docs/10.x/eloquent#mass-assignment
+    3. https://laravel.com/docs/10.x/database#database-transactions
+    4. https://laravel.com/docs/10.x/notifications#formatting-notifications
+     */
 
     public function InvoiceStore(Request $request){
 
@@ -137,11 +169,29 @@ class InvoiceController extends Controller
         return redirect()->route('invoice.pending.list')->with($notification);
     }
 
+    /*
+    @Author: Diwash Mainali
+    This function handles the retrieval of all pending invoices from the database and returns them to the invoice pending list view.
+    @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View -> The invoice pending list view, with the corresponding data
+
+    Code Reference:
+    1. https://laravel.com/docs/10.x/eloquent#retrieving-models
+    2. https://laravel.com/docs/10.x/eloquent#ordering
+     */
     public function PendingList(){
         $allData = Invoice::orderBy('date','desc')->orderBy('id','desc')->where('status','0')->get();
         return view('backend.invoice.invoice_pending_list',compact('allData'));
     }
 
+    /*
+    @Author: Diwash Mainali
+    This function deletes an invoice and its related records from the database
+    @param $id -> The id of the invoice to be deleted
+    @return \Illuminate\Http\RedirectResponse -> Redirects back to the invoice pending list view, with a notification
+
+    Code Reference (for deleting related records):
+    1. https://laravel.com/docs/10.x/eloquent#deleting-models
+     */
     public function InvoiceDelete($id){
 
         $invoice = Invoice::findOrFail($id);
@@ -157,11 +207,34 @@ class InvoiceController extends Controller
         return redirect()->back()->with($notification);
     }
 
+    /*
+    @Author: Diwash Mainali
+    This function handles the retrieval of all approved invoices from the database and returns them to the invoice approved list view.
+    @param $id -> The id of the invoice to be approved
+    @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View -> The invoice approved list view, with the corresponding data
+
+    Code Reference:
+    1. https://laravel.com/docs/10.x/eloquent#retrieving-models
+    2. https://laravel.com/docs/10.x/eloquent#ordering
+     */
     public function InvoiceApprove($id){
         $invoice = Invoice::with('invoice_details')->findOrFail($id);
         return view('backend.invoice.invoice_approve',compact('invoice'));
     }
 
+    /*
+    @Author: Diwash Mainali
+    This function handles the approval of an invoice and its related records from the database and returns them to the invoice approved list view
+    @param $id -> The id of the invoice to be approved
+    @param Request $request -> The request object containing the data to be approved
+    @return \Illuminate\Http\RedirectResponse -> Redirects back to the invoice approved list view, with a notification
+
+    Code Reference:
+    1. https://laravel.com/docs/10.x/eloquent#retrieving-models
+    2. https://laravel.com/docs/10.x/eloquent#ordering
+    3. https://laravel.com/docs/10.x/eloquent#updating-models
+    4. https://laravel.com/docs/10.x/database#database-transactions
+     */
     public function ApprovalStore(Request $request, $id){
         foreach($request->selling_qty as $key => $val){
             $invoice_details = InvoiceDetail::where('id',$key)->first();
@@ -199,21 +272,57 @@ class InvoiceController extends Controller
         return redirect()->route('invoice.pending.list')->with($notification);
     }
 
+    /*
+    @Author: Diwash Mainali
+    This function handles the retrieval of all approved invoices from the database and returns them to the invoice approved list view.
+    @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View -> The invoice approved list view, with the corresponding data
+
+    Code Reference:
+    1. https://laravel.com/docs/10.x/eloquent#retrieving-models
+    2. https://laravel.com/docs/10.x/eloquent#ordering
+    3. https://laravel.com/docs/10.x/database#database-transactions
+     */
     public function PrintInvoiceList(){
 
         $allData = Invoice::orderBy('date','desc')->orderBy('id','desc')->where('status','1')->get();
         return view('backend.invoice.print_invoice_list',compact('allData'));
     }
 
+    /*
+    @Author: Diwash Mainali
+    This function handles the retrieval of all approved invoices from the database and returns them to the invoice approved list view.
+     */
     public function PrintInvoice($id){
         $invoice = Invoice::with('invoice_details')->findOrFail($id);
         return view('backend.pdf.invoice_pdf',compact('invoice'));
 
     }
+
+    /*
+    @Author: Diwash Mainali
+    The function returns the daily invoice report view to the user with the corresponding data from the database
+    @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View -> The daily invoice report view, with the corresponding data
+
+    Code Reference:
+    1. https://laravel.com/docs/10.x/eloquent#retrieving-models
+     */
     public function DailyInvoiceReport(){
         return view('backend.invoice.daily_invoice_report');
     } // End Method
 
+    /*
+    @Author: Diwash Mainali
+    The function returns the daily invoice report view to the user with the corresponding data from the database
+    @param Request $request -> The request object
+    @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View -> The daily invoice report view, with the corresponding data
+
+    Code Reference:
+    1. https://laravel.com/docs/10.x/eloquent#retrieving-models
+    2. https://laravel.com/docs/10.x/eloquent#ordering
+    3. https://www.php.net/manual/en/function.date.php
+    4. https://www.php.net/manual/en/function.strtotime.php
+    5. https://laravel.com/docs/10.x/queries#where-clauses
+     */
     public function DailyInvoicePdf(Request $request){
 
         $sdate = date('Y-m-d',strtotime($request->start_date));
