@@ -11,9 +11,6 @@
                         <div class="card-body">
 
                             <h4 class="card-title">Edit Category Page </h4><br><br>
-
-
-
                             <form method="post" action="{{ route('category.update') }}" id="myForm" >
                                 @csrf
 
@@ -25,31 +22,23 @@
                                     </div>
                                 </div>
                                 <!-- end row -->
-
-
                                 <input type="submit" class="btn btn-info waves-effect waves-light" value="Update Category">
                             </form>
-
-
-
                         </div>
                     </div>
                 </div> <!-- end col -->
             </div>
-
-
-
         </div>
     </div>
 
     <script type="text/javascript">
+        // Same as the add category page
         $(document).ready(function (){
             $('#myForm').validate({
                 rules: {
                     name: {
                         required : true,
                     },
-
                 },
                 messages :{
                     name: {
@@ -70,9 +59,5 @@
                 },
             });
         });
-
     </script>
-
-
-
 @endsection
