@@ -1,7 +1,5 @@
 @extends('admin.admin_master')
 @section('admin')
-
-
     <div class="page-content">
         <div class="container-fluid">
 
@@ -10,8 +8,6 @@
                 <div class="col-12">
                     <div class="page-title-box d-sm-flex align-items-center justify-content-between">
                         <h4 class="mb-sm-0">All Categories</h4>
-
-
 
                     </div>
                 </div>
@@ -23,6 +19,7 @@
                     <div class="card">
                         <div class="card-body">
 
+                            {{--Route to redirect to add category page--}}
                             <a href="{{ route('category.add') }}" class="btn btn-dark btn-rounded waves-effect waves-light" style="float:right;">+ Add Category</a> <br>  <br>
 
                             <h4 class="card-title">Category All Data </h4>
@@ -40,6 +37,7 @@
 
                                 <tbody>
 
+{{--                                This foreach loop is used to display all the data from the database in the table. The data is fetched from the controller and passed to the view using the compact method.--}}
                                 @foreach($categoris as $key => $item)
                                     <tr>
                                         <td> {{ $key+1}} </td>
@@ -61,11 +59,6 @@
                     </div>
                 </div> <!-- end col -->
             </div> <!-- end row -->
-
-
-
         </div> <!-- container-fluid -->
     </div>
-
-
 @endsection

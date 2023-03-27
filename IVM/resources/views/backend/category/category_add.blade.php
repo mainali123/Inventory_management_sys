@@ -42,30 +42,31 @@
         </div>
     </div>
 
+{{--    The javascript code is for the validation while adding the category. The validation is done using the jquery.--}}
     <script type="text/javascript">
         $(document).ready(function (){
-            $('#myForm').validate({
+            $('#myForm').validate({ // validation using jquery to the form with id myForm
                 rules: {
                     name: {
-                        required : true,
+                        required : true,    // the name field is required
                     },
 
                 },
                 messages :{
                     name: {
-                        required : 'Please Enter Your Name',
+                        required : 'Please Enter Your Name',    // Message to be displayed if the name field is empty
                     },
 
                 },
-                errorElement : 'span',
-                errorPlacement: function (error,element) {
+                errorElement : 'span',  // This is used to display the error message in the span tag
+                errorPlacement: function (error,element) {  // This function is used to display the error message below the input field
                     error.addClass('invalid-feedback');
                     element.closest('.form-group').append(error);
                 },
-                highlight : function(element, errorClass, validClass){
+                highlight : function(element, errorClass, validClass){  // This function is used to highlight the input field if the validation fails
                     $(element).addClass('is-invalid');
                 },
-                unhighlight : function(element, errorClass, validClass){
+                unhighlight : function(element, errorClass, validClass){    // This function is used to remove the highlight from the input field if the validation passes
                     $(element).removeClass('is-invalid');
                 },
             });
