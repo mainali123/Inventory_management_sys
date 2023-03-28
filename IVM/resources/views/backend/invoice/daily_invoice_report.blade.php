@@ -60,6 +60,7 @@
 
 
     <script type="text/javascript">
+        // Same as the customer_add.blade.php page
         $(document).ready(function (){
             $('#myForm').validate({
                 rules: {

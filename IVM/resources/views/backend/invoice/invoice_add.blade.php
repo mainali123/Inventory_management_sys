@@ -224,8 +224,10 @@
 
 
     <script type="text/javascript">
-        $(document).ready(function(){
-            $(document).on("click",".addeventmore", function(){
+        $(document).ready(function(){   // this function executes when the document is ready
+            $(document).on("click",".addeventmore", function(){ //  Binding a click event to the ".addeventmore" element
+
+                // Retrieving values from form inputs
                 var date = $('#date').val();
                 var invoice_no = $('#invoice_no').val();
                 var category_id  = $('#category_id').val();
@@ -233,7 +235,7 @@
                 var product_id = $('#product_id').val();
                 var product_name = $('#product_id').find('option:selected').text();
 
-
+                // Validating form inputs
                 if(date == ''){
                     $.notify("Date is Required" ,  {globalPosition: 'top right', className:'error' });
                     return false;
@@ -248,7 +250,7 @@
                     return false;
                 }
 
-
+                // Compiling and appending data to template
                 var source = $("#document-template").html();
                 var tamplate = Handlebars.compile(source);
                 var data = {
@@ -264,11 +266,13 @@
                 $("#addRow").append(html);
             });
 
+            // Binding a click event to the ".removeeventmore" element
             $(document).on("click",".removeeventmore",function(event){
                 $(this).closest(".delete_add_more_item").remove();
                 totalAmountPrice();
             });
 
+            // Binding keyup and click events to ".unit_price" and ".selling_qty" elements
             $(document).on('keyup click','.unit_price,.selling_qty', function(){
                 var unit_price = $(this).closest("tr").find("input.unit_price").val();
                 var qty = $(this).closest("tr").find("input.selling_qty").val();
@@ -276,12 +280,13 @@
                 $(this).closest("tr").find("input.selling_price").val(total);
                 $('#discount_amount').trigger('keyup');
             });
+            // Binding keyup event to "#discount_amount" element
             $(document).on('keyup','#discount_amount',function(){
                 totalAmountPrice();
             });
 
-            // Calculate sum of amout in invoice
-
+            // Calculate sum of amount in invoice
+            // Defining a function to calculate total amount price
             function totalAmountPrice(){
                 var sum = 0;
                 $(".selling_price").each(function(){
@@ -303,19 +308,21 @@
     </script>
 
     <script type="text/javascript">
+        // Binding a change event to "#category_id" element
         $(function(){
             $(document).on('change','#category_id',function(){
                 var category_id = $(this).val();
+                // Ajax request to get products based on category id selected
                 $.ajax({
                     url:"{{ route('get-product') }}",
                     type: "GET",
                     data:{category_id:category_id},
-                    success:function(data){
+                    success:function(data){ // data is the response from the controller method
                         var html = '<option value="">Select Category</option>';
                         $.each(data,function(key,v){
                             html += '<option value=" '+v.id+' "> '+v.name+'</option>';
                         });
-                        $('#product_id').html(html);
+                        $('#product_id').html(html);    // Appending data to the "#product_id" element
                     }
                 })
             });
@@ -324,13 +331,13 @@
     </script>
 
     <script type="text/javascript">
-        $(function(){
+        $(function(){   // this function executes when the document is ready
             $(document).on('change','#product_id',function(){
                 var product_id = $(this).val();
                 $.ajax({
-                    url:"{{ route('check-product-stock') }}",
-                    type: "GET",
-                    data:{product_id:product_id},
+                    url:"{{ route('check-product-stock') }}",   // this is the route to the controller method
+                    type: "GET",    // this is the method to be used
+                    data:{product_id:product_id},   // this is the data to be sent to the controller method
                     success:function(data){
                         $('#current_stock_qty').val(data);
                     }
@@ -341,7 +348,7 @@
     </script>
 
     <script type="text/javascript">
-        $(document).on('change','#paid_status', function(){
+        $(document).on('change','#paid_status', function(){ // Binding a change event to "#paid_status" element
             var paid_status = $(this).val();
             if (paid_status == 'partial_paid') {
                 $('.paid_amount').show();
@@ -349,7 +356,7 @@
                 $('.paid_amount').hide();
             }
         });
-        $(document).on('change','#customer_id', function(){
+        $(document).on('change','#customer_id', function(){ // Binding a change event to "#customer_id" element
             var customer_id = $(this).val();
             if (customer_id == '0') {
                 $('.new_customer').show();
