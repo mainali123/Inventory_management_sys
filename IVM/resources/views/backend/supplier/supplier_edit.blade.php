@@ -12,8 +12,6 @@
 
                             <h4 class="card-title">Update Supplier</h4><br><br>
 
-
-
                             <form method="post" action="{{ route('supplier.update') }}" id="myForm" >
 {{--                                <form method="post" id="myForm" >--}}
 
@@ -55,24 +53,19 @@
                                     </div>
                                 </div>
                                 <!-- end row -->
-<center>
-                                <input type="submit" class="btn btn-dark waves-effect waves-light" value="Update Supplier">
-</center>
+                                <center>
+                                    <input type="submit" class="btn btn-dark waves-effect waves-light" value="Update Supplier">
+                                </center>
                             </form>
-
-
-
                         </div>
                     </div>
                 </div> <!-- end col -->
             </div>
-
-
-
         </div>
     </div>
 
     <script type="text/javascript">
+        // Same as the customer_add.blade.php page
         $(document).ready(function (){
             $('#myForm').validate({
                 rules: {
