@@ -3,7 +3,6 @@ $(function(){
         e.preventDefault();
         var link = $(this).attr("href");
 
-
         Swal.fire({
             title: 'Are you sure?',
             text: "Delete This Data?",
@@ -14,19 +13,18 @@ $(function(){
             confirmButtonText: 'Yes, delete it!'
         }).then((result) => {
             if (result.isConfirmed) {
-                window.location.href = link
                 Swal.fire(
                     'Deleted!',
                     'Your file has been deleted.',
                     'success'
-                )
+                ).then(() => {
+                    window.location.href = link;
+                });
             }
-        })
-
-
+        });
     });
-
 });
+
 
 $(function(){
     $(document).on('click','#ApproveBtn',function(e){
@@ -39,7 +37,7 @@ $(function(){
             text: "Approve This Data?",
             icon: 'warning',
             showCancelButton: true,
-            confirmButtonColor: '#3085d6',
+            confirmButtonColor: '#41d630',
             cancelButtonColor: '#d33',
             confirmButtonText: 'Yes, Approve it!'
         }).then((result) => {
@@ -49,11 +47,10 @@ $(function(){
                     'Approved!',
                     'Your file has been Approved.',
                     'success'
-                )
+                ).then(() => {
+                    window.location.href = link;
+                });
             }
-        })
-
-
+        });
     });
-
 });
