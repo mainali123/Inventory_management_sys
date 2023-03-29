@@ -242,9 +242,10 @@ class InvoiceController extends Controller
             if($product->quantity < $request->selling_qty[$key]){
 
                 $notification = array(
-                    'message' => 'Sorry you approve Maximum Value',
+                    'message' => 'Sorry there is insufficient stock.',
                     'alert-type' => 'error'
                 );
+
                 return redirect()->back()->with($notification);
 
             }
@@ -266,7 +267,7 @@ class InvoiceController extends Controller
         });
 
         $notification = array(
-            'message' => 'Invoice Approve Successfully',
+            'message' => 'Invoice Approved Successfully',
             'alert-type' => 'success'
         );
         return redirect()->route('invoice.pending.list')->with($notification);
