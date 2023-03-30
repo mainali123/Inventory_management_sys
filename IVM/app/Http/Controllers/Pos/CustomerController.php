@@ -92,7 +92,8 @@ class CustomerController extends Controller
 
     /*
     @Author: Diwash Mainali
-    This function updates a customer in the database based on the given request data, including the customer's image if provided and redirects the user to the customer list view with a success message
+    This function updates a customer in the database based on the given request data, including the customer's image if
+    provided and redirects the user to the customer list view with a success message
     @param Request $request -> The HTTP request containing the updated customer data
     @return \Illuminate\Http\RedirectResponse -> The HTTP response to redirect to the list of all customers
     @throws \Illuminate\Database\Eloquent\ModelNotFoundException -> If the customer with the given ID is not found
