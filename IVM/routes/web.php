@@ -30,6 +30,15 @@ Route::get('/dashboard', function () {
     return view('admin.index');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
+/* Test Route
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});*/
+
+
+
 /*
  * @Author: Diwash Mainali
 The admin controller is a controller that is used to manage all the actions of the admin. This is similar to all the other controllers that we have created.

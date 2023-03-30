@@ -23,11 +23,13 @@
                     <div class="card">
                         <div class="card-body">
 
+                            // the add button is linked to the route product.add
                             <a href="{{ route('product.add') }}" class="btn btn-dark btn-rounded waves-effect waves-light" style="float:right;">+ Add Product </a> <br>  <br>
 
                             <h4 class="card-title">Product All Data </h4>
 
 
+                            // the data is displayed in the table
                             <table id="datatable" class="table table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                                 <thead>
                                 <tr>
@@ -43,6 +45,7 @@
 
                                 <tbody>
 
+                                // the data is fetched from the database and displayed in the table
                                 @foreach($product as $key => $item)
                                     <tr>
                                         <td> {{ $key+1}} </td>
@@ -51,8 +54,11 @@
                                         <td> {{ $item['unit']['name'] }} </td>
                                         <td> {{ $item['category']['name'] }} </td>
                                         <td>
+
+                                            // the edit and delete button is linked to the route product.edit and product.delete
                                             <a href="{{ route('product.edit',$item->id) }}" class="btn btn-info sm" title="Edit Data">  <i class="fas fa-edit"></i> </a>
 
+                                            // the delete button is linked to the route product.delete
                                             <a href="{{ route('product.delete',$item->id) }}" class="btn btn-danger sm" title="Delete Data" id="delete">  <i class="fas fa-trash-alt"></i> </a>
 
                                         </td>

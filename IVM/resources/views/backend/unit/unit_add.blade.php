@@ -1,5 +1,6 @@
 @extends('admin.admin_master')
 @section('admin')
+    // this is the link for the jquery library
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
     <div class="page-content">
@@ -13,7 +14,7 @@
                             <h4 class="card-title">Add Unit Page </h4><br><br>
 
 
-
+                            // the form is submitted to the route unit.store
                             <form method="post" action="{{ route('unit.store') }}" id="myForm" >
                                 @csrf
 
@@ -26,6 +27,7 @@
                                 <!-- end row -->
 
 <center>
+                                // the submit button
                                 <input type="submit" class="btn btn-dark waves-effect waves-light" value="Add Unit">
 </center>
                             </form>
@@ -42,6 +44,7 @@
         </div>
     </div>
 
+    // The javascript code is for the validation while adding the unit. The validation is done using the jquery.
     <script type="text/javascript">
         $(document).ready(function (){
             $('#myForm').validate({

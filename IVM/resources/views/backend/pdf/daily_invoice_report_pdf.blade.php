@@ -103,9 +103,11 @@
                                                     <tbody>
                                                     <!-- foreach ($order->lineItems as $line) or some such thing here -->
 
+
                                                     @php
                                                         $total_sum = '0';
                                                     @endphp
+                                                    // $allData is the variable that contains the data from the controller
                                                     @foreach($allData as $key => $item)
                                                         <tr>
                                                             <td class="text-center">{{ $key+1 }}</td>
@@ -114,7 +116,6 @@
                                                             <td class="text-center">{{ date('d-m-Y',strtotime($item->date)) }}</td>
                                                             <td class="text-center">{{ $item->description }}</td>
                                                             <td class="text-center">{{ $item['payment']['total_amount'] }}</td>
-
 
                                                         </tr>
                                                         @php
@@ -131,14 +132,18 @@
                                                         <td class="no-line"></td>
                                                         <td class="no-line text-center">
                                                             <strong>Grand Amount</strong></td>
+                                                        // $total_sum is the variable that contains the total sum of the data from the controller
                                                         <td class="no-line text-end"><h4 class="m-0">${{ $total_sum}}</h4></td>
                                                     </tr>
                                                     </tbody>
                                                 </table>
                                             </div>
 
+
                                             <div class="d-print-none">
                                                 <div class="float-end">
+
+                                                    // print button
                                                     <a href="javascript:window.print()" class="btn btn-success waves-effect waves-light"><i class="fa fa-print">    Print</i></a>
 {{--                                                    <a href="#" class="btn btn-primary waves-effect waves-light ms-2">Download</a>--}}
                                                 </div>

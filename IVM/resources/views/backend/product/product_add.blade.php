@@ -1,5 +1,7 @@
 @extends('admin.admin_master')
 @section('admin')
+
+    // link to the jquery library
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
     <div class="page-content">
@@ -13,7 +15,7 @@
                             <h4 class="card-title">Add Product Page </h4><br><br>
 
 
-
+                            // the form is submitted to the route product.store
                             <form method="post" action="{{ route('product.store') }}" id="myForm" >
                                 @csrf
 
@@ -31,6 +33,8 @@
                                     <div class="col-sm-10">
                                         <select name="supplier_id" class="form-select" aria-label="Default select example">
                                             <option selected="">Open this select menu</option>
+
+                                            // the supplier is fetched from the database
                                             @foreach($supplier as $supp)
                                                 <option value="{{ $supp->id }}">{{ $supp->name }}</option>
                                             @endforeach
@@ -44,6 +48,8 @@
                                     <div class="col-sm-10">
                                         <select name="unit_id" class="form-select" aria-label="Default select example">
                                             <option selected="">Open this select menu</option>
+
+                                            // the unit is fetched from the database
                                             @foreach($unit as $uni)
                                                 <option value="{{ $uni->id }}">{{ $uni->name }}</option>
                                             @endforeach
@@ -59,6 +65,8 @@
                                     <div class="col-sm-10">
                                         <select name="category_id" class="form-select" aria-label="Default select example">
                                             <option selected="">Open this select menu</option>
+
+                                            // the category is fetched from the database
                                             @foreach($category as $cat)
                                                 <option value="{{ $cat->id }}">{{ $cat->name }}</option>
                                             @endforeach
@@ -68,6 +76,7 @@
                                 <!-- end row -->
 
 <center>
+                                // the submit button
                                 <input type="submit" class="btn btn-dark waves-effect waves-light" value="Add Product">
 </center>
                             </form>
@@ -84,6 +93,7 @@
         </div>
     </div>
 
+    // the jquery validation script
     <script type="text/javascript">
         $(document).ready(function (){
             $('#myForm').validate({

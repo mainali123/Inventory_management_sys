@@ -1,5 +1,7 @@
 @extends('admin.admin_master')
 @section('admin')
+
+    // link for the jquery library
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
     <div class="page-content">
@@ -13,24 +15,24 @@
                             <h4 class="card-title">Edit Unit Page </h4><br><br>
 
 
-
+                            // the form is submitted to the route unit.update
                             <form method="post" action="{{ route('unit.update') }}" id="myForm" >
                                 @csrf
 
+                                // the id of the unit is passed to the route unit.update
                                 <input type="hidden" name="id" value="{{ $unit->id }}">
                                 <div class="row mb-3">
                                     <label for="example-text-input" class="col-sm-2 col-form-label">Unit Name </label>
                                     <div class="form-group col-sm-10">
+                                        // the name of the unit is passed to the route unit.update
                                         <input name="name" value="{{ $unit->name }}" class="form-control" type="text"    >
                                     </div>
                                 </div>
                                 <!-- end row -->
 
-
+                                // the submit button
                                 <input type="submit" class="btn btn-info waves-effect waves-light" value="Update Unit">
                             </form>
-
-
 
                         </div>
                     </div>
@@ -42,6 +44,7 @@
         </div>
     </div>
 
+    // The javascript code is for the validation while updating the unit. The validation is done using the jquery.
     <script type="text/javascript">
         $(document).ready(function (){
             $('#myForm').validate({
@@ -57,6 +60,8 @@
                     },
 
                 },
+
+                // the error messages are displayed in the form of bootstrap alerts
                 errorElement : 'span',
                 errorPlacement: function (error,element) {
                     error.addClass('invalid-feedback');

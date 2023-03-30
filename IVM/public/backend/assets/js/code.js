@@ -1,3 +1,8 @@
+
+
+// Sweet Alert
+
+// Delete Sweet Alert
 $(function(){
     $(document).on('click','#delete',function(e){
         e.preventDefault();
@@ -25,7 +30,7 @@ $(function(){
     });
 });
 
-
+// Approve Sweet Alert
 $(function(){
     $(document).on('click','#ApproveBtn',function(e){
         e.preventDefault();
