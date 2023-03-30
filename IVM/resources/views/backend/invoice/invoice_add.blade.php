@@ -78,7 +78,7 @@
                         <!--  ---------------------------------- -->
 
                         <div class="card-body">
-                            <form method="post" action="{{ route('invoice.store') }}">
+                            <form method="post" id="myForm" action="{{ route('invoice.store') }}">
                                 @csrf
                                 <table class="table-sm table-bordered" width="100%" style="border-color: #ddd;">
                                     <thead>
@@ -280,7 +280,6 @@
                 $(this).closest("tr").find("input.selling_price").val(total);
                 $('#discount_amount').trigger('keyup');
             });
-            // Binding keyup event to "#discount_amount" element
             $(document).on('keyup','#discount_amount',function(){
                 totalAmountPrice();
             });
