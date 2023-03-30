@@ -80,7 +80,8 @@ class SupplierController extends Controller
 
     /*
     @Author: Diwash Mainali
-    This function updates the supplier data for the given supplier id based on the given request data and redirects the user to the supplier list view with a success message
+    This function updates the supplier data for the given supplier id based on the given request data and redirects the
+    user to the supplier list view with a success message
     @param Request $request -> The HTTP request containing the supplier data
     @return \Illuminate\Http\RedirectResponse -> The redirect response instance for the supplier list view
 

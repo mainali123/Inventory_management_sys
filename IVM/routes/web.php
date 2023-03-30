@@ -76,7 +76,6 @@ Route::middleware('auth')->group(function () {
     });
 });
 
-
 // Customers Route
 Route::middleware('auth')->group(function () {
     Route::controller(CustomerController::class)->group(function () {

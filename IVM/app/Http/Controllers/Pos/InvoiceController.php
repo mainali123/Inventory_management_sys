@@ -61,9 +61,11 @@ class InvoiceController extends Controller
 
     /*
     @Author: Diwash Mainali
-    This function handles the submission of a new invoice to the database, along with its related details, customer, and payment information.
+    This function handles the submission of a new invoice to the database, along with its related details, customer, and
+    payment information.
     @param Request $request -> The incoming request object containing the form data
-    @return \Illuminate\Http\RedirectResponse -> A redirect response to the invoice pending list page, with a corresponding flash message indicating whether the insertion was successful or not
+    @return \Illuminate\Http\RedirectResponse -> A redirect response to the invoice pending list page, with a corresponding
+    flash message indicating whether the insertion was successful or not
 
     Code Reference:
     1. https://laravel.com/docs/10.x/eloquent#inserts
@@ -292,6 +294,8 @@ class InvoiceController extends Controller
     /*
     @Author: Diwash Mainali
     This function handles the retrieval of all approved invoices from the database and returns them to the invoice approved list view.
+    @param $id -> The id of the invoice to be printed
+    @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View -> The invoice approved list view, with the corresponding data
      */
     public function PrintInvoice($id){
         $invoice = Invoice::with('invoice_details')->findOrFail($id);
@@ -300,7 +304,7 @@ class InvoiceController extends Controller
     }
 
     /*
-    @Author: Diwash Mainali
+    @Author: Adhiraj Lamichhane
     The function returns the daily invoice report view to the user with the corresponding data from the database
     @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View -> The daily invoice report view, with the corresponding data
 
@@ -312,7 +316,7 @@ class InvoiceController extends Controller
     } // End Method
 
     /*
-    @Author: Diwash Mainali
+    @Author: Adhiraj Lamichhane
     The function returns the daily invoice report view to the user with the corresponding data from the database
     @param Request $request -> The request object
     @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View -> The daily invoice report view, with the corresponding data

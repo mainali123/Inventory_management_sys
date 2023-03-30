@@ -12,21 +12,24 @@ class AdminController extends Controller
 {
     /*
     @Author: Diwash Mainali
-    Log out the authenticated user, invalidate the session, regenerate the CSRF token, and redirect the user to the login page with a success message
+    Log out the authenticated user, invalidate the session, regenerate the CSRF token, and redirect the user to the login
+     page with a success message
     @param Request $request -> The HTTP request instance
     @return RedirectResponse -> The HTTP response instance
 
     About CSRF token:
-    CSRF stands for Cross-Site Request Forgery, which is a type of attack where a malicious website or application tricks a user into executing an action on another website without their knowledge or consent.
-    The CSRF token is generated for the user's session, ensuring that any subsequent form or AJAX requests from the user will use a new, unique token. This helps to prevent CSRF attacks by making it much more difficult for attackers to generate valid tokens and execute unauthorized actions on behalf of the user.
+    CSRF stands for Cross-Site Request Forgery, which is a type of attack where a malicious website or application tricks
+    a user into executing an action on another website without their knowledge or consent.
+    The CSRF token is generated for the user's session, ensuring that any subsequent form or AJAX requests from the user
+    will use a new, unique token. This helps to prevent CSRF attacks by making it much more difficult for attackers to
+    generate valid tokens and execute unauthorized actions on behalf of the user.
     For more information, please refer to the Laravel documentation: https://laravel.com/docs/10.x/csrf#csrf-x-csrf-token
 
     Code Reference:
     1. https://laravel.com/docs/10.x/authentication#logging-out
     2. https://laravel.com/docs/10.x/csrf#csrf-x-csrf-token
     */
-    public function destroy(Request $request): RedirectResponse
-    {
+    public function destroy(Request $request): RedirectResponse{
         Auth::guard('web')->logout();
 
         $request->session()->invalidate();
@@ -74,7 +77,9 @@ class AdminController extends Controller
 
     /*
     @Author: Diwash Mainali
-    This function is used to update the current authenticated user's profile data with the values submitted through the HTTP request, including the user's name, email, and profile picture (if provided), and redirect the user to the admin profile view with a success message
+    This function is used to update the current authenticated user's profile data with the values submitted through the
+    HTTP request, including the user's name, email, and profile picture (if provided), and redirect the user to the admin
+    profile view with a success message
     @param Request $request -> The HTTP request instance containing the submitted form data
     @return \Illuminate\Http\RedirectResponse -> The redirect response instance for the admin profile view
 
@@ -108,7 +113,8 @@ class AdminController extends Controller
 
     /*
     @Author: Diwash Mainali
-    This function is used to render the view for the admin user to change their password with the current password, new password, and confirm password fields
+    This function is used to render the view for the admin user to change their password with the current password, new
+    password, and confirm password fields
     @return \Illuminate\Contracts\View\View -> The view instance for the admin change password view
 
     Code Reference:
@@ -121,7 +127,9 @@ class AdminController extends Controller
 
     /*
     @Author: Diwash Mainali
-    This function is used to handles the updating of the current user's password with the values submitted through the HTTP request, including the user's old password, new password, and confirm password, and redirect the user to the admin profile view with a success message
+    This function is used to handles the updating of the current user's password with the values submitted through the HTTP
+     request, including the user's old password, new password, and confirm password, and redirect the user to the admin
+    profile view with a success message
     @param \Illuminate\Http\Request $request -> The HTTP request instance containing the submitted form data
     @return \Illuminate\Http\RedirectResponse -> The redirect response instance for the admin profile view
 
@@ -149,5 +157,4 @@ class AdminController extends Controller
             return redirect()->back();
         }
     }
-
 }
