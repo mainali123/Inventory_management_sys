@@ -30,7 +30,7 @@
                             <div class="row">
                                 <div class="col-12">
                                     <div class="invoice-title">
-                                        // invoice number is generated from the controller
+{{--                                         invoice number is generated from the controller--}}
                                         <h4 class="float-end font-size-16"><strong>Invoice No {{ $invoice->invoice_no }}</strong></h4>
                                         <h3>
                                             <img src="{{ asset('backend/assets/images/logo-sm.png') }}" alt="logo" height="24"/>
@@ -46,7 +46,7 @@
                                             <address>
                                                 <strong>Invoice Date:</strong><br>
 
-                                                // date is generated from the controller
+{{--                                                 date is generated from the controller--}}
                                                 {{ date('d-m-Y',strtotime($invoice->date)) }} <br><br>
                                             </address>
                                         </div>
@@ -54,7 +54,7 @@
                                 </div>
                             </div>
 
-                            // php code to get the customer name, mobile number and email
+{{--                             php code to get the customer name, mobile number and email--}}
                             @php
                                 $payment = App\Models\Payment::where('invoice_id',$invoice->id)->first();
                             @endphp
@@ -114,7 +114,7 @@
                                                     </thead>
                                                     <tbody>
 
-                                                    // php code to get the product name, quantity, unit price and total price
+{{--                                                     php code to get the product name, quantity, unit price and total price--}}
                                                     @php
                                                         $total_sum = '0';
                                                     @endphp
@@ -130,14 +130,14 @@
 
                                                         </tr>
 
-                                                        // php code to get the total price
+{{--                                                         php code to get the total price--}}
                                                         @php
                                                             $total_sum += $details->selling_price;
                                                         @endphp
 
                                                     @endforeach
 
-                                                    // code to display the price in the invoice in the form of a table
+{{--                                                     code to display the price in the invoice in the form of a table--}}
                                                     <tr>
                                                         <td class="thick-line"></td>
                                                         <td class="thick-line"></td>
@@ -196,7 +196,7 @@
                                             <div class="d-print-none">
                                                 <div class="float-end">
 
-                                                    // code to print the invoice
+{{--                                                     code to print the invoice--}}
                                                     <a href="javascript:window.print()" class="btn btn-success waves-effect waves-light"><i class="fa fa-print">    Print</i></a>
                                                 </div>
                                             </div>
