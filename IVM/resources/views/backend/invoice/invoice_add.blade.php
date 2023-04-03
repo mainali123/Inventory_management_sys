@@ -364,4 +364,45 @@
             }
         });
     </script>
+
+    <script type="text/javascript">
+        $(document).ready(function (){
+            $('#myForm').validate({ // validation using jquery to the form with id myForm
+                rules: {
+                    paid_status: {
+                        required : true,    // This field is required
+                    },
+                    description: {
+                        required : true,     // This field is required
+                    },
+                    customer_id: {
+                        required : true,     // This field is required
+                    },
+                },
+                messages :{
+                    paid_status: {
+                        required : 'Please Select Paid Status',    // Message to be displayed if the name field is empty
+                    },
+                    description: {
+                        required : 'Please Enter Description',    // Message to be displayed if the name field is empty
+                    },
+                    customer_id: {
+                        required : 'Please Select Customer',    // Message to be displayed if the name field is empty
+                    },
+                },
+                errorElement : 'span',  // This is used to display the error message in the span tag
+                errorPlacement: function (error,element) {  // This function is used to display the error message below the input field
+                    error.addClass('invalid-feedback');
+                    element.closest('.form-group').append(error);
+                },
+                highlight : function(element, errorClass, validClass){  // This function is used to highlight the input field if the validation fails
+                    $(element).addClass('is-invalid');
+                },
+                unhighlight : function(element, errorClass, validClass){    // This function is used to remove the highlight from the input field if the validation passes
+                    $(element).removeClass('is-invalid');
+                },
+            });
+        });
+
+    </script>
 @endsection
