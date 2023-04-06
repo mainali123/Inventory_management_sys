@@ -6,8 +6,8 @@
       <sourceFolder url="file://$MODULE_DIR$/IVM/database/factories" isTestSource="false" packagePrefix="Database\Factories\" />
       <sourceFolder url="file://$MODULE_DIR$/IVM/database/seeders" isTestSource="false" packagePrefix="Database\Seeders\" />
       <sourceFolder url="file://$MODULE_DIR$/IVM/tests" isTestSource="true" packagePrefix="Tests\" />
-      <sourceFolder url="file://$MODULE_DIR$/spec" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/tests" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/IVM/tests/Feature" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/IVM/tests/Unit" isTestSource="true" />
       <excludeFolder url="file://$MODULE_DIR$/IVM/vendor/laravel/breeze" />
       <excludeFolder url="file://$MODULE_DIR$/IVM/vendor/intervention/image" />
     </content>

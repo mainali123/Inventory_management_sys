@@ -47,7 +47,7 @@ $(function(){
             confirmButtonText: 'Yes, Approve it!'
         }).then((result) => {
             if (result.isConfirmed) {
-                window.location.href = link
+                // window.location.href = link
                 Swal.fire(
                     'Approved!',
                     'Your file has been Approved.',
