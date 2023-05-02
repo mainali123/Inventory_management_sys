@@ -167,6 +167,9 @@ Route::middleware('auth')->group(function () {
 Route::controller(StockController::class)->group(function () {
     Route::get('/stock/report', 'StockReport')->name('stock.report');
     Route::get('/stock/report/pdf', 'StockReportPdf')->name('stock.report.pdf');
+    Route::get('/stock/supplier/wise', 'StockSupplierWise')->name('stock.supplier.wise');
+    Route::get('/supplier/wise/pdf', 'SupplierWisePdf')->name('supplier.wise.pdf');
+    Route::get('/product/wise/pdf', 'ProductWisePdf')->name('product.wise.pdf');
 });
 
 require __DIR__ . '/auth.php';

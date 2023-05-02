@@ -29,16 +29,10 @@
                                 <input type="submit" class="btn btn-dark waves-effect waves-light" value="Add Category">
 </center>
                             </form>
-
-
-
                         </div>
                     </div>
                 </div> <!-- end col -->
             </div>
-
-
-
         </div>
     </div>
 
