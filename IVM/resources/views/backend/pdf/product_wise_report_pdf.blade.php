@@ -8,12 +8,12 @@
             <div class="row">
                 <div class="col-12">
                     <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                        <h4 class="mb-sm-0">Supplier Wise Stock Report</h4>
+                        <h4 class="mb-sm-0">Product Wise Stock Report</h4>
 
                         <div class="page-title-right">
                             <ol class="breadcrumb m-0">
                                 <li class="breadcrumb-item"><a href="javascript: void(0);"> </a></li>
-                                <li class="breadcrumb-item active">Supplier Wise Stock Report</li>
+                                <li class="breadcrumb-item active">Product Wise Stock Report</li>
                             </ol>
                         </div>
 
@@ -55,6 +55,7 @@
                             </div>
 
 
+
                             <div class="row">
                                 <div class="col-12">
                                     <div>
@@ -68,6 +69,9 @@
                             </div> <!-- end row -->
 
 
+
+
+
                             <div class="row">
                                 <div class="col-12">
                                     <div>
@@ -77,13 +81,12 @@
                                         <div class="">
                                             <div class="table-responsive">
 
-                                                <h3 class="text-center"><strong>Supplier Name : </strong> {{ $allData['0']['supplier']['name'] }} </h3>
 
 
                                                 <table class="table">
                                                     <thead>
                                                     <tr>
-                                                        <td><strong>SN </strong></td>
+
                                                         <td class="text-center"><strong>Supplier Name </strong></td>
                                                         <td class="text-center"><strong>Unit  </strong>
                                                         </td>
@@ -94,25 +97,24 @@
                                                         <td class="text-center"><strong>Stock  </strong>
                                                         </td>
 
+
                                                     </tr>
                                                     </thead>
                                                     <tbody>
                                                     <!-- foreach ($order->lineItems as $line) or some such thing here -->
 
 
-                                                    @foreach($allData as $key => $item)
-                                                        <tr>
-                                                            <td class="text-center"> {{ $key+1}} </td>
-                                                            <td class="text-center"> {{ $item['supplier']['name'] }} </td>
-                                                            <td class="text-center"> {{ $item['unit']['name'] }} </td>
-                                                            <td class="text-center"> {{ $item['category']['name'] }} </td>
-                                                            <td class="text-center"> {{ $item->name }} </td>
-                                                            <td class="text-center"> {{ $item->quantity }} </td>
+
+                                                    <tr>
+
+                                                        <td class="text-center"> {{ $product['supplier']['name'] }} </td>
+                                                        <td class="text-center"> {{ $product['unit']['name'] }} </td>
+                                                        <td class="text-center"> {{ $product['category']['name'] }} </td>
+                                                        <td class="text-center"> {{ $product->name }} </td>
+                                                        <td class="text-center"> {{ $product->quantity }} </td>
 
 
-                                                        </tr>
-
-                                                    @endforeach
+                                                    </tr>
 
 
                                                     </tbody>
@@ -135,6 +137,11 @@
 
                                 </div>
                             </div> <!-- end row -->
+
+
+
+
+
 
                         </div>
                     </div>
