@@ -8,12 +8,12 @@
             <div class="row">
                 <div class="col-12">
                     <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                        <h4 class="mb-sm-0">Product Wise Stock Report</h4>
+                        <h4 class="mb-sm-0">Customer Credit Report</h4>
 
                         <div class="page-title-right">
                             <ol class="breadcrumb m-0">
                                 <li class="breadcrumb-item"><a href="javascript: void(0);"> </a></li>
-                                <li class="breadcrumb-item active">Product Wise Stock Report</li>
+                                <li class="breadcrumb-item active">Customer Credit Report</li>
                             </ol>
                         </div>
 
@@ -62,39 +62,19 @@
                                         <div class="p-2">
 
                                         </div>
-
-                                    </div>
-
-                                </div>
-                            </div> <!-- end row -->
-
-
-
-
-
-                            <div class="row">
-                                <div class="col-12">
-                                    <div>
-                                        <div class="p-2">
-
-                                        </div>
                                         <div class="">
                                             <div class="table-responsive">
-
-
-
                                                 <table class="table">
                                                     <thead>
                                                     <tr>
+                                                        <td><strong>SN </strong></td>
+                                                        <td class="text-center"><strong>Customer Name </strong></td>
+                                                        <td class="text-center"><strong>Invoice No  </strong>
+                                                        </td>
+                                                        <td class="text-center"><strong>Date</strong>
+                                                        </td>
 
-                                                        <td class="text-center"><strong>Supplier Name </strong></td>
-                                                        <td class="text-center"><strong>Unit  </strong>
-                                                        </td>
-                                                        <td class="text-center"><strong>Category</strong>
-                                                        </td>
-                                                        <td class="text-center"><strong>Product Name</strong>
-                                                        </td>
-                                                        <td class="text-center"><strong>Stock  </strong>
+                                                        <td class="text-center"><strong>Due Amount  </strong>
                                                         </td>
 
 
@@ -103,24 +83,36 @@
                                                     <tbody>
                                                     <!-- foreach ($order->lineItems as $line) or some such thing here -->
 
+                                                    @php
+                                                        $total_due = '0';
+                                                    @endphp
+                                                    @foreach($allData as $key => $item)
+                                                        <tr>
+                                                            <td class="text-center"> {{ $key+1}} </td>
+                                                            <td class="text-center"> {{ $item['customer']['name'] }} </td>
+                                                            <td class="text-center"> #{{ $item['invoice']['invoice_no'] }}   </td>
+                                                            <td class="text-center"> {{  date('d-m-Y',strtotime($item['invoice']['date'])) }} </td>
+                                                            <td class="text-center"> {{ $item->due_amount }} </td>
+
+                                                        </tr>
+                                                        @php
+                                                            $total_due += $item->due_amount;
+                                                        @endphp
+                                                    @endforeach
+
 
 
                                                     <tr>
-
-                                                        <td class="text-center"> {{ $product['supplier']['name'] }} </td>
-                                                        <td class="text-center"> {{ $product['unit']['name'] }} </td>
-                                                        <td class="text-center"> {{ $product['category']['name'] }} </td>
-                                                        <td class="text-center"> {{ $product->name }} </td>
-                                                        <td class="text-center"> {{ $product->quantity }} </td>
-
-
+                                                        <td class="no-line"></td>
+                                                        <td class="no-line"></td>
+                                                        <td class="no-line"></td>
+                                                        <td class="no-line text-center">
+                                                            <strong>Grand Due Amount</strong></td>
+                                                        <td class="no-line text-end"><h4 class="m-0">${{ $total_due}}</h4></td>
                                                     </tr>
-
-
                                                     </tbody>
                                                 </table>
                                             </div>
-
 
                                             @php
                                                 $date = new DateTime('now', new DateTimeZone('Asia/Dhaka'));

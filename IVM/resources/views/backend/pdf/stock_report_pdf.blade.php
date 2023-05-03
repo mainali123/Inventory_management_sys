@@ -29,16 +29,16 @@
                                     <div class="invoice-title">
 
                                         <h3>
-                                            <img src="{{ asset('backend/assets/images/logo-sm.png') }}" alt="logo" height="24"/> Inventory Management System
+                                            <img src="{{ asset('backend/assets/images/logo-sm.png') }}" alt="logo" height="24"/> DAAN SuperMarket
                                         </h3>
                                     </div>
                                     <hr>
                                     <div class="row">
                                         <div class="col-6 mt-4">
                                             <address>
-                                                <strong>DAAN</strong><br>
+                                                <strong>DAAN SUPERMARKET:</strong><br>
                                                 Kathmandu, Nepal<br>
-                                                daan@gmail.com
+                                                support@daancanmanage.com
                                             </address>
                                         </div>
                                         <div class="col-6 mt-4 text-end">
