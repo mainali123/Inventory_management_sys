@@ -64,6 +64,9 @@
                 rules: {
                     name: {
                         required : true,
+                        minlength : 2,
+                        lettersonly : true,
+                        number : false,
                     },
                     mobile_no: {
                         required : true,
@@ -73,14 +76,19 @@
                     },
                     email: {
                         required : true,
+                        email : 'Please Enter A Valid Email',
                     },
                     address: {
                         required : true,
+                        lettersonly : true,
                     },
                 },
                 messages :{
                     name: {
                         required : 'Please Enter Your Name',
+                        minlength : 'Your Name Must Be At Least 2 Characters',
+                        lettersonly : 'Please Enter Only Letters',
+                        number : 'Please Enter Only Letters',
                     },
                     mobile_no: {
                         required : 'Please Enter Your Mobile Number',
@@ -90,9 +98,11 @@
                     },
                     email: {
                         required : 'Please Enter Your Email',
+                        email : 'Please Enter A Valid Email',
                     },
                     address: {
                         required : 'Please Enter Your Address',
+                        lettersonly : 'Please Enter Only Letters',
                     },
                 },
                 errorElement : 'span',
