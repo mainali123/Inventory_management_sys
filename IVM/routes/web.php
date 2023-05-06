@@ -11,6 +11,7 @@ use App\Http\Controllers\Pos\InvoiceController;
 use App\Http\Controllers\Pos\PurchaseController;
 use App\Http\Controllers\Pos\DefaultController;
 use App\Http\Controllers\Pos\StockController;
+use App\Http\Controllers\DashboardController;
 
 /*
 |--------------------------------------------------------------------------
@@ -186,5 +187,11 @@ Route::controller(StockController::class)->group(function () {
     Route::get('/supplier/wise/pdf', 'SupplierWisePdf')->name('supplier.wise.pdf');
     Route::get('/product/wise/pdf', 'ProductWisePdf')->name('product.wise.pdf');
 });
+
+Route::controller(DashboardController::class)->group(function () {
+//    Route::get('/dashboard', 'dashboard')->name('dashboard.report');
+
+});
+
 
 require __DIR__ . '/auth.php';
