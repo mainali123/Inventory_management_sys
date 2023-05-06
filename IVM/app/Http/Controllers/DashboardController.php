@@ -2,8 +2,13 @@
 
 namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
-use App\Models\Dashboard;
+use App\Models\User;
 use Illuminate\Http\Request;
+use App\Models\Purchase;
+use App\Models\Supplier;
+use App\Models\Product;
+use App\Models\Unit;
+use App\Models\Category;
 use Auth;
 use Illuminate\Support\Carbon;
 

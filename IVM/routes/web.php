@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Models\Invoice;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Pos\SupplierController;
 use App\Http\Controllers\Pos\CustomerController;
@@ -12,7 +13,10 @@ use App\Http\Controllers\Pos\PurchaseController;
 use App\Http\Controllers\Pos\DefaultController;
 use App\Http\Controllers\Pos\StockController;
 use App\Http\Controllers\DashboardController;
-
+use App\Models\Product;
+use App\Models\Purchase;
+use App\Models\Supplier;
+use App\Models\User;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -29,7 +33,14 @@ Route::get('/', function () {
 });
 
 Route::get('/dashboard', function () {
-    return view('admin.index');
+    $allData = Invoice::orderBy('date','desc')->orderBy('id','desc')->where('status','1')->get();
+
+    $totalproduct = Product::count();
+            $totalpurchase = Purchase::count();
+        $totalsupplier = Supplier::count();
+        $uniqueuser= User::count();
+    return view('admin.index', compact('totalproduct', 'totalpurchase', 'totalsupplier','uniqueuser', 'allData'));
+
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 /* Test Route
@@ -189,7 +200,7 @@ Route::controller(StockController::class)->group(function () {
 });
 
 Route::controller(DashboardController::class)->group(function () {
-//    Route::get('/dashboard', 'dashboard')->name('dashboard.report');
+//    Route::get('/dashboard', 'dashboard')->name('dashboard.show');
 
 });
 
