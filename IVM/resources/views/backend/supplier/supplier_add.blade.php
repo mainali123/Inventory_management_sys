@@ -67,6 +67,9 @@
                     },
                     mobile_no: {
                         required : true,
+                        minlength : 10,
+                        maxlength : 10,
+                        number : true,
                     },
                     email: {
                         required : true,
@@ -81,6 +84,9 @@
                     },
                     mobile_no: {
                         required : 'Please Enter Your Mobile Number',
+                        minlength : 'Your Mobile Number Must Be 10 Digits',
+                        maxlength : 'Your Mobile Number Must Be 10 Digits',
+                        number : 'Please Enter Only Number',
                     },
                     email: {
                         required : 'Please Enter Your Email',
@@ -102,6 +108,6 @@
                 },
             });
         });
-
     </script>
+
 @endsection
