@@ -23,18 +23,6 @@
 
             </div>
 
-            <div id="charts">
-                @php
-
-                    $topCustomers = DB::table('payments')
-                    ->orderBy('id', 'desc')
-                    ->select('name', 'total_items')
-                    ->take(5)
-                    ->get();
-
-
-                @endphp
-            </div>
         </div>
     </div>
 
