@@ -35,7 +35,17 @@ class StockController extends Controller
     public function ProductWisePdf(Request $request){
 
         $product = Product::where('category_id',$request->category_id)->where('id',$request->product_id)->first();
-        return view('backend.pdf.product_wise_report_pdf',compact('product'));
+        // if category id or product id is not selected then display error message asking to select category id and product id
+        if($product == null){
+            $notification = array(
+                'message' => 'Please fill all the fields',
+                'alert-type' => 'error'
+            );
+            return redirect()->back()->with($notification);
+        }else {
+
+            return view('backend.pdf.product_wise_report_pdf', compact('product'));
+        }
     }
 
 
