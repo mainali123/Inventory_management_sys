@@ -145,7 +145,6 @@
 
 {{--                                                     print button--}}
                                                     <a href="javascript:window.print()" class="btn btn-success waves-effect waves-light"><i class="fa fa-print">    Print</i></a>
-{{--                                                    <a href="#" class="btn btn-primary waves-effect waves-light ms-2">Download</a>--}}
                                                 </div>
                                             </div>
                                         </div>
