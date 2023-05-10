@@ -283,7 +283,7 @@ class CustomerController extends Controller
             );
             return redirect()->back()->with($notification);
         }else {
-            return view('backend.pdf.customer_wise_credit_pdf.blade.php', compact('allData'));
+            return view('backend.pdf.customer_wise_credit_pdf', compact('allData'));
         }
     }// End Method
 
